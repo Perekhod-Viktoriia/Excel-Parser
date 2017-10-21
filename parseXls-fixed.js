@@ -247,11 +247,9 @@ class DataFormatter {
                 }
             }
             if (!isNaN(value) && +value > 1) {
-                console.log(value, '--------------------------------------------');
                 for (let i = 0; i < value; i++) {
                     arrayLimitedGrades.push(i + 1);
                 }
-                console.log(arrayLimitedGrades, '_______________________________________-');
 
             }
         }
@@ -285,9 +283,10 @@ class DataInserter {
                 const idOfOrganisation = res.rows[0].id;
 
                 this.insertSubjects(idOfOrganisation);
-            }).catch((e) => {
-            console.log(e)
-        });
+            })
+            .catch((e) => {
+                console.log(e)
+            });
     }
 
     insertSubjects(idOfOrganisation) {

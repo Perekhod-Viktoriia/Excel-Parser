@@ -49,4 +49,5 @@ jspm_packages
 *.xls
 *.xlsx
 *.zip
+.idea
 Export.files
