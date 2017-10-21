@@ -185,10 +185,10 @@ class DataFormatter {
                 subject.gradeText = this.formatString(subject.grade);
             }
 
-            const gradeText = subject.gradeText + '';
-
             subject.grades = this.createGradeFromGradeText(subject.gradeText);
             subject.gradeText = this.reformatGradeText(subject.gradeText);
+
+            const gradeText = subject.gradeText + '';
 
             if (~gradeText.indexOf('-')) {
                 subject.titleName += " - Grades " + subject.gradeText;
@@ -246,13 +246,17 @@ class DataFormatter {
                     arrayLimitedGrades.push(i);
                 }
             }
-            if (!isNaN(value) && +value > 1) {
+            if (!isNaN(value)) {
                 for (let i = 0; i < value; i++) {
                     arrayLimitedGrades.push(i + 1);
                 }
+            }
 
+            if (isNaN(value) && !~value.indexOf('-')) {
+                arrayLimitedGrades.push(value);
             }
         }
+
         return arrayLimitedGrades;
     }
 
